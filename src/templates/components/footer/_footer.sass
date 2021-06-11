@@ -1,0 +1,56 @@
+.footer
+    padding-top: rem(46px)
+    background: #141519
+    color: #FFF
+    font-size: rem(14px)
+    line-height: rem(18px)
+    +min-screen($screen-sm)
+        padding-top: rem(80px)
+        font-size: rem(18px)
+        line-height: rem(38px)
+    +min-screen($screen-md)
+        padding-top: rem(150px)
+        font-size: rem(24px)
+        line-height: rem(38px)
+    &__logo
+        margin-bottom: rem(37px)
+        +min-screen($screen-sm)
+            margin-bottom: rem(30px)
+        +min-screen($screen-md)
+            margin-bottom: 0
+    &-block
+        margin-bottom: rem(18px)
+        +min-screen($screen-sm)
+            margin-bottom: rem(30px)
+        &__title
+            color: #787878
+        &__text
+            &._bordered
+                border-bottom: 1px solid currentColor
+        a
+            @extend .transition
+            &:hover
+                color: #787878
+                &._bordered
+                    border-color: transparent
+    &-bottom
+        margin-top: rem(28px)
+        padding: rem(26px) 0 rem(80px)
+        border-top: 1px solid #787878
+        color: #787878
+        +min-screen($screen-sm)
+            margin-top: rem(80px)
+            padding: rem(42px) 0 
+        +min-screen($screen-md)
+            padding: rem(92px) 0 rem(97px)
+    &__copyright
+        margin-bottom: rem(26px)
+        +min-screen($screen-sm)
+            margin-bottom: 0
+    &-social
+        display: flex
+        align-items: center
+        justify-content: space-between
+        +min-screen($screen-sm)
+            justify-content: flex-end
+        

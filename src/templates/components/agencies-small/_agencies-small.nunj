@@ -1,0 +1,19 @@
+{% from "../icon/_icon.nunj" import icon %}
+
+<section class="agencies-small">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-12 col-lg-12">
+                <ul class="agencies-list">
+                    {% for item in agencies.items %}
+                        <li class="agencies-list__item">
+                            <a href="{{ item.site }}" target="_blank">
+                                <img src="media/img/{{ item.logoColored }}" alt="{{ item.title }}" class="agencies-list__logo">
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,47 @@
+{% extends "../ext/base.nunj" %}
+
+{% from "../components/button/_button.nunj" import button %}
+
+{% block title %}Home / {{ super() }}{% endblock title %}
+
+{% block content %}
+{% include '../components/agencies-small/_agencies-small.nunj' %}
+	<main class="fullpage">
+		<div class="section">
+			{% include '../components/header/_header.nunj' %}
+			{% include '../components/intro/_intro.nunj' %}
+		</div>
+
+		<div class="section " data-percentage="80" >
+			{% include '../components/agencies/_agencies.nunj' %}
+		</div>
+
+		<div class="section fp-auto-height">
+			
+			
+			{% include '../components/advantages/_advantages.nunj' %}
+			
+		</div>
+		<div class="section fp-auto-height">
+			{% include '../components/about/_about.nunj' %}
+			
+		</div>
+		<div class="section " data-percentage="80" data-centered="false">
+			{% include '../components/we-connect/_we-connect.nunj' %}
+		</div>
+		<div class="section" data-percentage="80" >
+			{% include '../components/we-believe/_we-believe.nunj' %}
+		</div>
+		<div class="section fp-auto-height">
+			{% include '../components/we-help/_we-help.nunj' %}
+		</div>
+		<div class="section fp-auto-height">
+
+			{% include '../components/footer/_footer.nunj' %}
+			
+		</div>
+		
+	</main>
+	{% include '../components/popups/_popups.nunj' %}
+
+{% endblock content %}

@@ -1,0 +1,45 @@
+.button
+    position: relative
+    display: inline-block
+    height: rem(48px)
+    padding: 0 rem(26px)
+    font-size: rem(10px)
+    line-height: rem(42px)
+    font-weight: 800
+    text-transform: uppercase
+    border-radius: rem(32px)
+    border: 1px solid currentColor
+    text-align: center
+    @extend .transition
+    cursor: pointer
+    z-index: 1  
+    +min-screen($screen-sm)
+        height: rem(64px)
+        padding: 0 rem(42px)
+        line-height: rem(62px)
+        font-size: rem(11px)
+    &._gradient
+        &:before
+            +b
+            width: calc(100% + 2px)
+            height: calc(100% + 2px)
+            top: 50%
+            left: 50%
+            transform: translate(-50%,-50%)
+            background: linear-gradient(270deg, #FE617E 0%, #FF7052 100%)
+            border-radius: rem(32px)
+            @extend .transition
+            opacity: 0
+            z-index: -1
+        &:hover
+            color: #FFF
+            border-color: transparent
+            &:before
+                opacity: 1
+    &._pink
+        color: $pink
+        background: none
+    &._big
+        padding: 0 rem(26px)
+        +min-screen($screen-sm)
+            padding: 0 rem(32px)

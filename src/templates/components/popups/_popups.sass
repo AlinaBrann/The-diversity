@@ -1,0 +1,135 @@
+.popups-wrapper
+	position: fixed
+	top: 0
+	left: 0
+	z-index: 10000
+	width: 100%
+	height: 100%
+	display: none
+	overflow: auto
+	background: rgba(0,0,0,0.75)
+	transition: background $default-transition-duration $default-transition-function
+	will-change: transform
+	+min-screen($screen-sm)
+		background: rgba(0,0,0,0.6)
+	&__content
+		display: flex
+		align-items: center
+		width: 100%
+		height: 100%
+		position: relative
+		padding-top: 10vh
+		padding-bottom: 10vh
+		overflow: auto
+		box-sizing: border-box
+		+min-screen($screen-sm)
+			display: block
+			height: auto
+
+.popup
+	position: relative
+	width: 100%
+	margin: auto
+	will-change: transform
+	color: #FFF	
+	+min-screen($screen-sm)
+		width: 90%
+		background: #FFF
+		color: #131316
+	+min-screen($screen-md)
+		width: 50%
+		min-height: 100%
+	&-closer
+		$parent: &
+		position: absolute
+		top: 20px
+		right: 20px
+		display: flex
+		align-items: center
+		z-index: 10
+		cursor: pointer
+		&__text
+			margin-right: 10px
+			font-size: 14px
+			text-transform: uppercase
+			@extend .transition
+			+min-screen($screen-sm)
+				border-bottom: 1px solid currentColor
+		&__icon
+			+size(12px)
+			transform: rotate(45deg)
+			@extend .transition
+			svg
+				+size(100%)
+				display: block
+		&:hover
+			#{$parent}
+				&__text
+					color: $red
+				&__icon
+					transform: rotate(135deg)
+	&-slider
+		position: relative
+		padding: rem(52px) rem(0px) rem(30px)
+		+min-screen($screen-sm)
+			padding: rem(66px) rem(84px) rem(38px)
+		+min-screen($screen-md)
+			padding: rem(96px) rem(104px) rem(58px)
+		&-arrow
+			position: absolute
+			top: 77%
+			transform: translate(0%,-50%)
+			background: none
+			border: none
+			cursor: pointer
+			z-index: 1000
+			+min-screen($screen-sm)
+				top: 42%
+			&._prev 
+				left: rem(20px)
+				+min-screen($screen-sm)
+					left: rem(32px)
+			&._next
+				right: rem(20px)
+				transform: translate(0%,-50%)
+				+min-screen($screen-sm)
+					right: rem(32px)
+			svg
+				*
+					fill: #FFF
+					+min-screen($screen-sm)
+						fill: #000
+			&.slick-disabled
+				cursor: default
+				svg
+					*
+						fill: #ccc
+				&:hover
+					svg
+						*
+							fill:  #ccc
+			&:hover
+				svg
+					*
+						fill: $red
+						
+		&-slide
+			&__img
+				width: 100%
+				height: rem(220px)
+				object-fit: cover
+				margin-bottom: rem(29px)
+				+min-screen($screen-sm)
+					height: rem(420px)
+			&__text
+				width: 75%
+				margin: auto
+				font-size: rem(18px)
+				line-height: rem(26px)
+				text-align: center
+				+min-screen($screen-sm)
+					font-size: rem(20px)
+					line-height: rem(30px)
+				+min-screen($screen-md)
+					font-size: rem(26px)
+					line-height: rem(40px)

@@ -1,0 +1,19 @@
+{% from "../icon/_icon.nunj" import icon %}
+
+{% macro socialBlock(props) %}
+    <ul class="social{% if props.class %} {{ props.class }}{% endif %}">
+        {% for item in social %}
+            <li class="social__item">
+                <a href="{{ item.link }}" class="social__link">
+                    {{ icon({
+                        name: item.icon,
+                        width: "28",
+                        height: "28",
+                        fill: "#FFF",
+                        class: "social__icon"
+                    })}}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endmacro %}

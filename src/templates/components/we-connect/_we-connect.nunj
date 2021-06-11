@@ -1,0 +1,12 @@
+<section class="we-connect animated-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-7 col-lg-7">
+                <h3 class="section-title we-connect__title animated-title " data-auto-show>{{ connect.title }}</h3>
+                <div class="section-subtitle we-connect__subtitle" data-auto-show>{{ connect.subtitle }}</div>
+                <img src="media/img/hand-1.svg" alt="" class="animated-image we-connect__image _left">
+                <img src="media/img/hand-2.svg" alt="" class="animated-image we-connect__image _right">
+            </div>
+        </div>
+    </div>
+</section>

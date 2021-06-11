@@ -1,0 +1,15 @@
+.social
+    display: flex
+    align-items: center
+    &__item
+        margin-left: rem(15px)
+        +min-screen($screen-sm)
+            margin-left: rem(39px)
+    &__icon
+        display: block
+        +size(rem(17px))
+        +min-screen($screen-sm)
+            +size(rem(28px))
+        @extend .transition
+        &:hover
+            fill: $blue

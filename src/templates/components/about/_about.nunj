@@ -1,0 +1,20 @@
+<section class="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-12 col-lg-12">
+                <h3 class="about__title section-title _red" data-auto-show>{{ about.title }}</h3>
+                <div class="about__text" data-auto-show>{{ about.text }}</div>
+            </div>
+        </div>
+        <div class="row">
+            {% for item in  about.blocks %}
+                <div class="col-xs-12 col-sm-10 offset-sm-1 offset-md-0 col-md-4 col-lg-4">
+                    <div class="about-block" data-auto-show>
+                        <div class="about-block__title">{{ item.title }}</div>
+                        <div class="about-block__text">{{ item.text }}</div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

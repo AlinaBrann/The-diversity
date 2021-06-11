@@ -1,0 +1,93 @@
+.we-connect
+    padding-bottom: 17.9vh
+    padding-top: rem(43px)
+    overflow: hidden
+    +min-screen($screen-sm)
+        padding-top: rem(90px)
+        padding-bottom: 35vh
+    +min-screen($screen-lg)
+        padding-bottom: 30vh
+    .container
+        position: relative
+    &__title
+        margin-bottom: rem(6px)
+        +min-screen($screen-sm)
+            margin-bottom: rem(20px)
+    &__subtitle
+        width: 70%
+        +min-screen($screen-xs)
+            width: 47%
+        +min-screen($screen-sm)
+            width: auto
+    &__image
+        position: absolute
+        @extend .transition
+        +min-screen($screen-md)
+            opacity: 0
+        &._active
+            opacity: 1
+        &._right
+            width: 65%
+            top: 37%
+            right: -19%
+            +min-screen($screen-sm)
+                width: 55%
+                top: 75%
+                right: 0%
+            +min-screen($screen-md)
+                width: rem(686px)
+                top: 21%
+                right: -4.5%
+            &._active
+                animation: rightHandMob 1s ease-out forwards
+                +min-screen($screen-md)
+                    animation: rightHand 1s ease-out
+        &._left
+            width: 77%
+            top: 61%
+            left: -17%
+            +min-screen($screen-sm)
+                width: 60%
+                top: 110%
+                left: -7%
+            +min-screen($screen-md)
+                width: rem(767px)
+                top: 42%
+                left: 18.6%
+            &._active
+                animation: leftHandMob 1s ease-out forwards
+                +min-screen($screen-md)
+                    animation: leftHand 1s ease-out forwards
+
+@keyframes rightHand 
+    0%
+        opacity: 0
+        transform: translate(5vw,-5vh)
+    100%
+        opacity: 1
+        transform: translate(0,0)
+
+@keyframes rightHandMob
+    0%
+        opacity: 0
+        transform: translate(5vw,-5vh)
+    100%
+        opacity: 1
+        transform: translate(0,0) rotate(-8deg)
+
+
+@keyframes leftHand 
+    0%
+        opacity: 0
+        transform: translate(-5vw,5vh) rotate(4deg)
+    100%
+        opacity: 1
+        transform: translate(0,0) rotate(0deg)
+
+@keyframes leftHandMob
+    0%
+        opacity: 0
+        transform: translate(-5vw,5vh) rotate(0deg)
+    100%
+        opacity: 1
+        transform: translate(0,0) rotate(-6deg)

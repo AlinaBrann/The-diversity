@@ -1,0 +1,48 @@
+.we-help
+    padding-bottom: rem(32px)
+    +min-screen($screen-sm)
+        padding-bottom: rem(50px)
+    +min-screen($screen-md)
+        padding-top: rem(100px)
+        padding-bottom: rem(200px)
+    &__title
+        margin-bottom: rem(6px)
+        +min-screen($screen-sm)
+            margin-bottom: rem(20px)
+    &__subtitle
+        margin-bottom: rem(20px)
+        +min-screen($screen-md)
+            margin-bottom: rem(70px)
+    &__image
+        display: block
+        width: 40%
+        margin: rem(50px) auto
+        @extend .transition
+        +min-screen($screen-md)
+            width: 100%
+            margin: 0
+            opacity: 0
+            transform: translate(-5vh, 0)
+       
+        &._active
+            opacity: 1
+            transform: translate(0, 0)
+    &-list
+        &__item
+            display: flex
+            flex-direction: column
+            align-items: flex-start
+            margin-bottom: rem(20px)
+            font-size: rem(14px)
+            line-height: rem(18px)
+            +min-screen($screen-sm)
+                margin-bottom: rem(53px)
+                font-size: rem(20px)
+                line-height: rem(30px)
+            +min-screen($screen-md)
+                font-size: rem(26px)
+                line-height: rem(40px)
+            span
+                margin-bottom: rem(10px)
+                +min-screen($screen-sm)
+                    margin-bottom: rem(17px)

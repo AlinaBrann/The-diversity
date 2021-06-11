@@ -1,0 +1,79 @@
+{% from "../icon/_icon.nunj" import icon %}
+
+<div class="popups-wrapper" data-prevent-scroll>
+	<div class="popups-wrapper__content">
+
+		<div class="popup" data-popup="gallery">
+			<div class="popup-closer" data-popup-closer>
+				<div class="popup-closer__text">Закрыть</div>
+				<div class="popup-closer__icon">
+					{{ icon({
+						name: "plus",
+						width: "27",
+						height: "27"
+					})}}
+				</div>
+			</div>
+			<div data-slider="popupSlider">
+				<div class="popup-slider" data-slider-slides>
+					{% for slide in popup.slider %}
+						<div class="popup-slider-slide">
+							<img src="media/img/{{ slide.img }}" class="popup-slider-slide__img" alt="">
+							<div class="popup-slider-slide__text">{{ slide.text }}</div>
+						</div>
+					{% endfor %}
+				</div>
+				{% if popup.slider.length > 1 %}
+				<button class="popup-slider-arrow _prev" data-slider-prev>
+					<svg width="18" height="32" viewBox="0 0 18 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<rect width="21.9631" height="0.998325" transform="matrix(-0.707107 0.707107 0.707107 0.707107 16.5273 0)" fill="black"/>
+						<path d="M16.5273 31.0796L0.997054 15.5493L1.70298 14.8434L17.2333 30.3737L16.5273 31.0796Z" fill="black"/>
+					</svg>
+				</button>
+				<button class="popup-slider-arrow _next" data-slider-next>
+					<svg width="18" height="32" viewBox="0 0 18 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<rect x="1.47266" width="21.9631" height="0.998325" transform="rotate(45 1.47266 0)" fill="black"/>
+						<path d="M1.47266 31.0801L17.0029 15.5498L16.297 14.8439L0.766734 30.3742L1.47266 31.0801Z" fill="black"/>
+					</svg>
+				</button>
+				{% endif %}
+			</div>
+		</div>
+		<div class="popup" data-popup="gallery2">
+			<div class="popup-closer" data-popup-closer>
+				<div class="popup-closer__text">Закрыть</div>
+				<div class="popup-closer__icon">
+					{{ icon({
+						name: "plus",
+						width: "27",
+						height: "27"
+					})}}
+				</div>
+			</div>
+			<div data-slider="popupSlider">
+				<div class="popup-slider" data-slider-slides>
+					{% for slide in popup.slider2 %}
+						<div class="popup-slider-slide">
+							<img src="media/img/{{ slide.img }}" class="popup-slider-slide__img" alt="">
+							<div class="popup-slider-slide__text">{{ slide.text }}</div>
+						</div>
+					{% endfor %}
+				</div>
+				{% if popup.slider2.length > 1 %}
+				<button class="popup-slider-arrow _prev" data-slider-prev>
+					<svg width="18" height="32" viewBox="0 0 18 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<rect width="21.9631" height="0.998325" transform="matrix(-0.707107 0.707107 0.707107 0.707107 16.5273 0)" fill="black"/>
+						<path d="M16.5273 31.0796L0.997054 15.5493L1.70298 14.8434L17.2333 30.3737L16.5273 31.0796Z" fill="black"/>
+					</svg>
+				</button>
+				<button class="popup-slider-arrow _next" data-slider-next>
+					<svg width="18" height="32" viewBox="0 0 18 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<rect x="1.47266" width="21.9631" height="0.998325" transform="rotate(45 1.47266 0)" fill="black"/>
+						<path d="M1.47266 31.0801L17.0029 15.5498L16.297 14.8439L0.766734 30.3742L1.47266 31.0801Z" fill="black"/>
+					</svg>
+				</button>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,22 @@
+.header
+	background: #FFF
+	+min-screen($screen-md)
+		position: absolute
+		top: 0
+		left: 0
+		display: block
+		width: 100%
+		background: none
+		z-index: 1000
+	&-logo
+		display: block
+		margin-top: 4vh 
+		+min-screen($screen-md)
+			margin-top:  8.14vh // rem(88px)
+		&__img
+			display: block
+			height: rem(34px)
+			+min-screen($screen-sm)
+				height: rem(78px)
+			+min-screen($screen-md)
+				height: rem(118px)

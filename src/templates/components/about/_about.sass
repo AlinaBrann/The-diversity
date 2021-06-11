@@ -1,0 +1,77 @@
+.about
+    padding-top: rem(43px)
+    padding-bottom: rem(30px)
+    background: $black
+    +min-screen($screen-sm)
+        padding-top: rem(90px)
+        padding-bottom: rem(100px)
+    +min-screen($screen-md)
+        padding-top: rem(223px)
+        padding-bottom: rem(258px)
+        margin: 0 rem(50px)
+    +min-screen($screen-lg)
+        padding-top: rem(153px)
+        padding-bottom: rem(158px)
+    +min-screen($screen-xlg)
+        padding-top: rem(223px)
+        padding-bottom: rem(258px)
+    &__title
+        margin-bottom: rem(5px)
+        +min-screen($screen-sm)
+            margin-bottom: rem(23px)
+    &__text
+        margin-bottom: rem(27px)
+        font-size: rem(18px)
+        line-height: rem(22px)
+        color: #FFF
+        font-weight: 800
+        +min-screen($screen-sm)
+            margin-bottom: rem(95px)
+            font-size: rem(40px)
+            line-height: rem(52px)
+        +min-screen($screen-md)
+            margin-bottom: rem(145px)
+            font-size: rem(60px)
+            line-height: rem(72px)
+    &-block
+        display: flex
+        height: rem(153px)
+        flex-direction: column
+        padding: rem(20px) rem(37px)
+        margin-bottom: rem(20px)
+        background: $blue
+        color: #FFF
+        text-align: center
+        +min-screen($screen-sm)
+            height: rem(226px)
+            margin-bottom: rem(30px)
+            padding: rem(20px) rem(47px)
+        +min-screen($screen-md)
+            margin-bottom: 0
+            height: rem(286px)
+        &__title
+            display: flex
+            flex: 0 0 54%
+            align-items: flex-end
+            justify-content: center
+            padding-bottom: rem(12px)
+            font-size: rem(16px)
+            line-height: rem(20px)
+            font-weight: 800
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3)
+            +min-screen($screen-xs)
+                font-size: rem(18px)
+                line-height: rem(22px)
+            +min-screen($screen-sm)
+                padding-bottom: rem(22px)
+                font-size: rem(26px)
+                line-height: rem(40px)
+        &__text
+            flex: 0 0 46%
+            padding-top: rem(9px)
+            font-size: rem(14px)
+            line-height: rem(18px)
+            +min-screen($screen-sm)
+                padding-top: rem(13px)
+                font-size: rem(20px)
+                line-height: rem(30px)

@@ -1,0 +1,18 @@
+<section class="we-believe animated-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-12 col-lg-12">
+                <h3 class="we-believe__title section-title animated-title" data-auto-show>{{ believe.title }}</h3>
+                <div class="we-believe__subtitle section-subtitle" data-auto-show>{{ believe.subtitle }}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-6 col-lg-6">
+                <div class="we-believe__text" data-auto-show>{{ believe.text }}</div>
+            </div>
+            <div class="col-xs-12 col-md-6 col-lg-6">
+                <img src="media/img/hand-3.png" alt="" class="we-believe__image animated-image">
+            </div>
+        </div>
+    </div>
+</section>

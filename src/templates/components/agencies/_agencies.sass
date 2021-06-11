@@ -1,0 +1,136 @@
+.agencies
+    padding-top: rem(44px)
+    padding-bottom: rem(18px)
+    +min-screen($screen-sm)
+        padding-top: rem(80px)
+        padding-bottom: 0
+    +min-screen($screen-md)
+        display: flex
+        align-items: center
+        min-height: 80vh  
+        margin-bottom: rem(30px) 
+        padding-top: 0
+    &__title
+        margin-bottom: rem(35px)
+        +min-screen($screen-sm)
+            margin-bottom: rem(58px)
+
+.agency
+    margin-bottom: rem(26px)
+    +min-screen($screen-sm)
+        margin-bottom: rem(60px)
+    +min-screen($screen-md)
+        margin-bottom: 0
+    &-head
+        position: relative
+        height: auto
+        padding: rem(10px) 0
+        display: flex
+        align-items: center
+        justify-content: space-between
+        flex-wrap: wrap
+        border-bottom: 1px solid $grey
+        +min-screen($screen-sm)
+            height: rem(100px)
+            padding: 0
+            flex-wrap: nowrap
+            border-top: 1px solid $grey
+        &__logo
+            max-height: rem(31px)
+            +min-screen($screen-sm)
+                max-height: rem(41px)
+            +min-screen($screen-md)
+                max-height: rem(51px)
+    &-body
+        padding-top: rem(7px)
+        ._active &
+            display: none
+        +min-screen($screen-sm)
+            padding-top: rem(17px)
+            ._active &
+                display: block
+        &__title
+            font-size: rem(30px)
+            line-height: rem(35px)
+            font-weight: 800
+            +min-screen($screen-md)
+                font-size: rem(48px)
+                line-height: rem(60px)
+        &__text
+            font-size: rem(14px)
+            line-height: rem(23px)
+            +min-screen($screen-sm)
+                font-size: rem(20px)
+                line-height: rem(40px)
+    &-popup
+        position: relative
+        width: 100%
+        max-height: 0
+        top: rem(15px)
+        @extend .transition
+        pointer-events: none
+        opacity: 0
+        z-index: 1
+        +min-screen($screen-sm)
+            position: absolute
+            top: calc(100% + 1px)
+            right: 0
+            max-height: none
+            transform: translateY(-10px)
+        ._active &
+            max-height: 300px
+            pointer-events: all
+            opacity: 1
+            +min-screen($screen-sm)
+                max-height: none
+                transform: translateY(0px)
+        
+        &__title
+            padding: rem(43px) 0 rem(12px)
+            margin-bottom: rem(9px)
+            font-size: rem(18px)
+            line-height: rem(22px)
+            font-weight: 800
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3)
+            +min-screen($screen-sm)
+                padding: rem(35px) 0 rem(22px)
+                margin-bottom: rem(22px)
+                font-size: rem(26px)
+                line-height: rem(40px)
+        &__text
+            font-size: rem(14px)
+            line-height: rem(18px)
+            +min-screen($screen-sm)
+                font-size: rem(20px)
+                line-height: rem(30px)
+        &__button
+            margin: rem(23px) auto rem(20px)
+            +min-screen($screen-sm)
+                margin: rem(23px) 0 rem(51px)
+        &-opener
+            display: block
+            +size(#{rem(14px)})
+            @extend .transition
+            cursor: pointer
+            +min-screen($screen-sm)
+                +size(#{rem(27px)})
+            svg
+                display: block
+                +size(100%)
+            ._active &
+                transform: rotate(135deg)
+        &-content
+            padding: 0 rem(37px) 
+            background: $blue
+            color: #FFF
+            text-align: center
+            +min-screen($screen-sm)
+                padding: 0 rem(47px) 
+            &:before
+                +b
+                bottom: 100%
+                right: 12px
+                width: 0
+                height: 0
+                border-bottom: 20px solid $blue
+                border-left: 20px solid transparent

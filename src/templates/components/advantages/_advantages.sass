@@ -1,0 +1,93 @@
+.advantages
+    padding: rem(46px) 0 rem(19px)
+    background: #FFF
+    +min-screen($screen-sm)
+        padding: rem(62px) 0 rem(50px)
+    +min-screen($screen-md)
+        display: flex
+        align-items: center
+        height: 100vh
+        padding: rem(100px) 0 rem(100px)
+    +min-screen($screen-lg)
+        height: auto
+    &__title
+        margin-bottom: rem(18px)
+        +min-screen($screen-sm)
+            margin-bottom: rem(23px)
+        &-small
+            +max-screen($screen-sm)
+                margin-bottom: rem(17px)
+                font-size: rem(30px)
+                line-height: rem(50px)
+    &__subtitle
+        width: 70%
+        margin-bottom: rem(30px)
+        font-size: rem(18px)
+        line-height: rem(22px)
+        font-weight: 800
+        +min-screen($screen-sm)
+            width: auto
+            margin-bottom: rem(55px)
+            font-size: rem(30px)
+            line-height: rem(50px)
+        +min-screen($screen-md)
+            margin-bottom: rem(85px)
+            font-size: rem(40px)
+            line-height: rem(60px)
+    &-list
+        display: flex
+        width: 100%
+        flex-direction: column
+        justify-content: space-between
+        +min-screen($screen-md)
+            flex-direction: row
+            margin-top: rem(32px)
+        &__item
+            margin-bottom: rem(26px)
+            font-size: rem(14px)
+            line-height: rem(18px)
+            +min-screen($screen-sm)
+                font-size: rem(18px)
+                line-height: rem(30px)
+            +min-screen($screen-md)
+                flex: 0 0 28%
+                font-size: rem(26px)
+                line-height: rem(40px)
+            &:before
+                display: block
+                content: ''
+                +size(#{rem(68px)}, 3px)
+                margin-bottom: rem(6px)
+                background: #1A1E23
+                +min-screen($screen-md)
+                    margin-bottom: rem(17px)
+    &__image
+        display: block
+        height: rem(280px)
+        max-width: none
+        margin-left: rem(-40px)
+        opacity: 0
+        +min-screen($screen-sm)
+            max-width: 100%
+            height: auto
+            margin: 0 auto rem(30px)
+        +min-screen($screen-md)
+            margin: 0
+            transform-origin: 50% 25%
+            opacity: 0
+        &._active
+            animation: flying 2s cubic-bezier(0.5, 1, 0.89, 1) forwards
+
+@keyframes flying
+    0%
+        opacity: 0
+        transform: translateY(-50%) rotate(7deg)
+    33%
+        opacity: 1
+        transform: translateY(-30%) rotate(-5deg)
+    66%
+        opacity: 1
+        transform: translateY(-10%) rotate(4deg)
+    100%
+        opacity: 1
+        transform: translateY(0%) rotate(0deg)

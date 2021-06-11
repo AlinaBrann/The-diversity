@@ -1,0 +1,10 @@
+<header class="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-12 col-lg-12 flex _aic _jcc">
+                <a href="https://thediversity.ru/" target="_blank" class="header-logo" data-auto-show>
+                    <img src="media/img/logo.svg" alt="the diversity" class="header-logo__img"></a>
+                </div>
+        </div>
+    </div>
+</header>

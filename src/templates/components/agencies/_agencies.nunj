@@ -1,0 +1,38 @@
+{% from "../icon/_icon.nunj" import icon %}
+
+<section class="agencies">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-12 col-lg-12">
+                <div class="section-title agencies__title animated-title" data-auto-show>{{ agencies.title }}</div>
+            </div>
+        </div>
+        <div class="row">
+            {% for item in agencies.items %}
+                <div class="agency col-xs-12 col-md-4 col-lg-4" data-auto-show>
+                    <div class="agency-head">
+                        <img src="media/img/{{ item.logo }}" alt="{{ item.title }}" class="agency-head__logo">
+                        <div class="agency-popup-opener">
+                            {{ icon({
+                                name: "plus",
+                                width: "27",
+                                height: "27"
+                            })}}
+                        </div>
+                        <div class="agency-popup">
+                            <div class="agency-popup-content">
+                                <div class="agency-popup__title">{{ item.popupTitle }}</div>
+                                <div class="agency-popup__text">{{ item.popupText }}</div>
+                                <a href="{{ item.site }}" class="agency-popup__button button _gradient" target="_blank">перейти на сайт</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="agency-body">
+                        <div class="agency-body__title">{{ item.title }}</div>
+                        <div class="agency-body__text">{{ item.text }}</div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

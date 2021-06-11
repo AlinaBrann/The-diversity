@@ -1,0 +1,48 @@
+{% from "../social/_social.nunj" import socialBlock %}
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-4 col-lg-4">
+                <a href="https://thediversity.ru/" target="_blank"><img src="media/img/logo-white.svg" alt="" class="footer__logo hidden-xs" data-auto-show></a>
+                <a href="https://thediversity.ru/" target="_blank"><img src="media/img/logo-white-short.svg" alt="" class="footer__logo visible-xs" data-auto-show></a>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <div class="footer-block" data-auto-show>
+                    <div class="footer-block__title">Телефон</div>
+                    <a href="tel:{{ phone }}" class="footer-block__text">{{ phone }}</a>
+                </div>
+                <div class="footer-block" data-auto-show>
+                    <div class="footer-block__title">Офис</div>
+                    <div class="footer-block__text">{{ address }}</div>
+                    <a href="{{ mapLink }}" class="footer-block__text _bordered">На карте</a>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <div class="footer-block" data-auto-show>
+                    <div class="footer-block__title">Email по вопросам сотрудничества</div>
+                    <a href="mailto:{{ mail }}" class="footer-block__text _bordered">{{ mail }}</a>
+                </div>
+                <div class="footer-block" data-auto-show>
+                    <div class="footer-block__title">Email по вопросам трудоустройства</div>
+                    <a href="mailto:{{ mailHR }}" class="footer-block__text _bordered">{{ mailHR }}</a>
+                    <br><a href="/" class="footer-block__text _bordered">Онлайн форма</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom" >
+            <div class="row">
+                <div class="col-xs-12 col-sm-4 col-md-6 col-lg-6">
+                    <div class="footer__copyright">TheDiversityGroup©<span></span></div>
+                </div>
+                <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6">
+                    <div class="footer-social">
+                        <div class="footer-social__text">Присоединяйтесь к нам в соцсетях</div>
+                        {{ socialBlock() }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</footer>

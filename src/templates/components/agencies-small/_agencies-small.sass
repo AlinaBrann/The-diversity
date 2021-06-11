@@ -1,0 +1,32 @@
+.agencies
+    &-list
+        display: flex
+        align-items: center
+        justify-content: center
+        margin: rem(13px) 0
+        &__item
+            &:not(:last-of-type)
+                margin-right: rem(75px)
+        &__logo
+            height: rem(38px)
+    &-small
+        position: fixed
+        top: 0
+        left: 0
+        width: 100%
+        transform: translateY(-100%)
+        background: #FFF
+        opacity: 0
+        box-shadow: 0px 2px 40px rgba(0, 0, 0, 0.15)
+        @extend .transition
+        z-index: 1000
+        &.hide
+            transform: translateY(-100%)
+            @extend .transition
+            transition-delay: 0.5s
+        &.fixed
+            transform: translate(0)
+            @extend .transition
+            transition-delay: 0.5s
+            opacity: 1
+            

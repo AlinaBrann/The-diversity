@@ -1,0 +1,26 @@
+<section class="intro" data-slider="intro" >
+    <div class="intro-slider" data-slider-slides data-auto-show>
+        {% for item in intro %}
+            <div class="intro-slide-wrapper">
+                <div class="intro-slide">
+                    <div class="container">
+                        <div class="row _aic">
+                            <div class="col-xs-12 col-md-7 col-lg-7">
+                                <div class="intro-slide__title section-title">{{ item.title }}</div>
+                                <div class="intro-slide__text">{{ item.text }}</div>
+                            </div>
+                            <div class="col-xs-12 col-md-5 col-lg-5">
+                                <div class="intro-slide__image-wrapper">
+                                    <img src="media/img/{{ item.img }}.png" class="intro-slide__image{% if item.imgClass %} {{ item.imgClass }}{% endif %}" alt="">
+                                    {% if loop.index0 == 0 %}
+                                        <img src="media/img/cosmonaut-1-shadow.png" class="intro-slide__image _shadow" alt="">
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</section>

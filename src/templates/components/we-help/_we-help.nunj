@@ -1,0 +1,29 @@
+<section class="we-help animated-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-12 col-lg-12">
+                <h3 class="we-help__title section-title animated-title" data-auto-show>{{ help.title }}</h3>
+                <div class="we-help__subtitle section-subtitle" data-auto-show>{{ help.subtitle }}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-4 col-lg-4">
+                <img src="media/img/cosmonaut-5.png" alt="" class="we-help__image animated-image hidden-xs">
+            </div>
+            <div class="col-xs-12 col-sm-10 col-md-8 col-lg-8">
+                <ul class="we-help-list" data-auto-show>
+                    {% for item in help.items %}
+                        <li class="we-help-list__item">
+                            <span>{{ item.text }}</span>
+                            {% if item.link %}
+                                <a href="{{ item.link }}" class="button _pink _big _gradient">{{ item.buttonText }}</a>
+                            {% else %}
+                                <button class="button _pink _gradient" attr="{{ item.attr }}" {% if item.popup %}data-popup-opener="{{ item.popup }}" {% endif %}>{{ item.buttonText }}</button>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>

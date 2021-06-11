@@ -1,0 +1,115 @@
+$delay_first: .3s
+$delay_second: .7s
+
+.intro
+    max-width: 100%
+    padding-top: rem(20px)
+    padding-bottom: rem(47px)
+    background: #FFF
+    +min-screen($screen-md)
+        height: 90vh
+        padding-top: 0
+        padding-bottom: 0
+        background: none
+        &-slider
+            height: 100%
+            max-width: 100vw
+    &-slide
+        display: flex
+        align-items: center
+        +min-screen($screen-md)
+            height: 88vh
+        &__title,
+        &__text,
+        &__image
+            @extend .transition
+            opacity: 0
+            ._active &
+                opacity: 1
+        &__title
+            margin-bottom: rem(19px)
+            transform: translateY(10%)
+            opacity: 0
+            transition-delay: $delay_first
+            ._active &
+                transform: translateY(0%)
+                opacity: 1
+                color: $blue
+            +min-screen($screen-sm)
+                margin-bottom: rem(23px)
+                white-space: nowrap
+            span
+                +max-screen($screen-xs)
+                    font-size: rem(52px)
+                    line-height: rem(54px)
+
+        &__text
+            font-size: rem(18px)
+            line-height: rem(22px)
+            font-weight: 800
+            transition-delay: $delay_second
+            opacity: 0
+            transform: translateY(10%)
+            +min-screen($screen-sm)
+                font-size: rem(30px)
+                line-height: rem(40px)
+            +min-screen($screen-md)
+                font-size: rem(40px)
+                line-height: rem(60px)
+            ._active &
+                transform: translateY(0%)
+                opacity: 1
+        &__image
+            position: relative
+            display: block
+            max-width: none
+            height: rem(294px)
+            margin: auto
+            object-fit: contain
+            transition-delay: $delay_second
+            opacity: 0
+            +min-screen($screen-md)
+                max-width: 100%
+                height: auto
+            ._active &
+                opacity: 1
+            &-wrapper
+                display: flex
+                flex-direction: column
+                margin-top: rem(10px)
+                +min-screen($screen-sm)
+                    margin-top: rem(90px)
+                +max-screen($screen-xs)
+                    display: flex
+                    height: rem(320px)
+                    align-items: center
+            &._sliced-left
+                animation: flyingCosmo ease-in-out 5s infinite
+                +max-screen($screen-xs)
+                    height: 100%
+                    width: 125%
+                    left: -20%
+            &._sliced-right
+                animation: flyingCosmo ease-in-out 5s infinite
+                +max-screen($screen-xs)
+                    height: auto
+                    width: 100%
+                    left: 0%
+            &._flying
+                max-width: 100%
+                animation: flyingCosmo ease-in-out 5s infinite 
+            &._shadow
+                max-width: 100%
+
+$deg: 1.5deg
+@keyframes flyingCosmo
+    0%,100%
+        transform: translateY(0%) rotate(0deg)
+
+    25%
+        transform: translateY(-2%) rotate(-$deg)
+    50%
+        transform: translateY(-4%) rotate($deg)
+
+    80%
+        transform: translateY(0%) rotate(-$deg)
