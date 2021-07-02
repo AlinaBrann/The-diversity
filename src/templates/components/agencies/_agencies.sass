@@ -36,7 +36,11 @@
             flex-wrap: nowrap
             border-top: 1px solid $grey
         &__logo
+            filter: grayscale(100%)
+            transition: filter .5s
             max-height: rem(31px)
+            ._active &
+                filter: grayscale(0%)
             +min-screen($screen-sm)
                 max-height: rem(41px)
             +min-screen($screen-md)
