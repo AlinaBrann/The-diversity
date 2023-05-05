@@ -3,24 +3,24 @@
     +min-screen($screen-sm)
         padding-bottom: rem(50px)
     +min-screen($screen-md)
-        padding-top: rem(100px)
-        padding-bottom: rem(200px)
+        padding-top: rem(150px)
+        padding-bottom: rem(20px)
     &__title
         margin-bottom: rem(6px)
         +min-screen($screen-sm)
-            margin-bottom: rem(20px)
+            margin-bottom: rem(16px)
     &__subtitle
         margin-bottom: rem(20px)
         +min-screen($screen-md)
-            margin-bottom: rem(70px)
+            margin-bottom: 0px
     &__image
         display: block
         width: 40%
         margin: rem(50px) auto
         @extend .transition
         +min-screen($screen-md)
-            width: 100%
-            margin: 0
+            width: 70%
+            margin: rem(32px) 0 0
             opacity: 0
             transform: translate(-5vh, 0)
        
@@ -46,3 +46,4 @@
                 margin-bottom: rem(10px)
                 +min-screen($screen-sm)
                     margin-bottom: rem(17px)
+                    letter-spacing: normal

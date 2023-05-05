@@ -8,7 +8,7 @@
         </div>
         <div class="row">
             <div class="col-xs-12 col-md-6 col-lg-6">
-                <div class="we-believe__text" data-auto-show>{{ believe.text }}</div>
+                <!--<div class="we-believe__text" data-auto-show>{{ believe.text }}</div>-->
             </div>
             <div class="col-xs-12 col-md-6 col-lg-6">
                 <img src="media/img/hand-3.png" alt="" class="we-believe__image animated-image">

@@ -22,7 +22,9 @@ function Popups() {
 	this.activePopupName = '';
 
 	let self = this;
-	// self.open('gallery');
+
+	// self.open('map');
+
 	dom.$body.on('click', '[data-popup-opener]', function(e) {
 		e.preventDefault();
 

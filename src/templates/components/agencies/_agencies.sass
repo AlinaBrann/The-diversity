@@ -1,19 +1,23 @@
 .agencies
+    position: relative
     padding-top: rem(44px)
     padding-bottom: rem(18px)
+    background: #EDEDED
+    z-index: 700
     +min-screen($screen-sm)
         padding-top: rem(80px)
         padding-bottom: 0
     +min-screen($screen-md)
         display: flex
         align-items: center
-        min-height: 80vh  
-        margin-bottom: rem(30px) 
+        min-height: 69vh  
+        margin: 0 rem(50px) rem(30px) 
         padding-top: 0
+        padding-bottom: rem(25px)
     &__title
         margin-bottom: rem(35px)
         +min-screen($screen-sm)
-            margin-bottom: rem(58px)
+            margin-bottom: rem(63px)
 
 .agency
     margin-bottom: rem(26px)
@@ -39,12 +43,17 @@
             filter: grayscale(100%)
             transition: filter .5s
             max-height: rem(31px)
+            pointer-events: all
             ._active &
                 filter: grayscale(0%)
             +min-screen($screen-sm)
                 max-height: rem(41px)
             +min-screen($screen-md)
                 max-height: rem(51px)
+            &-wrapper 
+                display: block
+                flex: 1 0
+                pointer-events: none
     &-body
         padding-top: rem(7px)
         ._active &

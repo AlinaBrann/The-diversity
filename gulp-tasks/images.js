@@ -22,7 +22,7 @@ export default function images() {
 						imageminMozjpeg({
 							quality: 80,
 						}),
-						imagemin.svgo({ plugins: [{ removeViewBox: false }] }),
+						// imagemin.svgo({ plugins: [{ removeViewBox: false }] }),
 					],
 					{
 						verbose: true,
