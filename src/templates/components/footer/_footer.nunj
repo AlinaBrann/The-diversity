@@ -15,7 +15,7 @@
                 <div class="footer-block" data-auto-show>
                     <div class="footer-block__title">Офис</div>
                     <div class="footer-block__text">{{ address }}</div>
-                    <a href="{{ mapLink }}" class="footer-block__text _bordered">На карте</a>
+                    <a href="/" class="footer-block__text _bordered" data-popup-opener="map">На карте</a>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
@@ -26,7 +26,7 @@
                 <div class="footer-block" data-auto-show>
                     <div class="footer-block__title">Email по вопросам трудоустройства</div>
                     <a href="mailto:{{ mailHR }}" class="footer-block__text _bordered">{{ mailHR }}</a>
-                    <br><a href="/" class="footer-block__text _bordered">Онлайн форма</a>
+                    <br><a href="/" class="footer-block__text _bordered" data-popup-opener="feedback">Онлайн форма</a>
                 </div>
             </div>
         </div>
@@ -36,10 +36,10 @@
                     <div class="footer__copyright">TheDiversityGroup©<span></span></div>
                 </div>
                 <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6">
-                    <div class="footer-social">
+                    {# <div class="footer-social">
                         <div class="footer-social__text">Присоединяйтесь к нам в соцсетях</div>
                         {{ socialBlock() }}
-                    </div>
+                    </div> #}
                 </div>
             </div>
         </div>

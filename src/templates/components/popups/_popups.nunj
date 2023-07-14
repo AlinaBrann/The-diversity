@@ -75,5 +75,59 @@
 				{% endif %}
 			</div>
 		</div>
+		<div class="popup _small" data-popup="feedback">
+			<div class="popup-closer" data-popup-closer>
+				<div class="popup-closer__text">Закрыть</div>
+				<div class="popup-closer__icon">
+					{{ icon({
+						name: "plus",
+						width: "27",
+						height: "27"
+					})}}
+				</div>
+			</div>
+			<div class="popup__content">
+				<div class="popup__title">Вопросы по&nbsp;трудоустройству</div>
+				<form class="popup__form">
+					<div class="popup__inner">
+						<div class="popup__row">
+							<div class="input-wrapper input-accepted popup__input">
+								<input type="text" placeholder="Имя, фамилия" name="name" class="input">
+							</div>
+							<div class="input-wrapper popup__input">
+								<input type="tel" name="phone" required placeholder="Телефон" class="input">
+							</div>
+							<div class="input-wrapper popup__input">
+								<input type="mail" name="email" required placeholder="E-mail" class="input">
+							</div>
+						</div>
+						<div class="input-wrapper input-error _full-width">
+							<textarea placeholder="Cообщение" name="message" class="input"></textarea>
+						</div>
+						{{ button({
+							type: "submit",
+							text: "отправить",
+							className: "popup__button _gradient-fill"
+						})}}
+				</div>
+			</form>
+			</div>
+		</div>
+		<div class="popup" data-popup="map">
+			<div class="popup-closer" data-popup-closer>
+				<div class="popup-closer__text">Закрыть</div>
+				<div class="popup-closer__icon">
+					{{ icon({
+						name: "plus",
+						width: "27",
+						height: "27"
+					})}}
+				</div>
+			</div>
+			<div class="popup__map">
+				<img src="media/img/map.jpg" class="popup__map-img" alt="">
+				<div class="popup__map-text">Москва, 2-й Кожевнический пер., д.12, подъезд&nbsp;13, этаж 3 <br>+7 (495) 789 3821</div>
+			</div>
+		</div>
 	</div>
 </div>

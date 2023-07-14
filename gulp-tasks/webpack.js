@@ -20,7 +20,7 @@ const defaultStatsOptions = {
 };
 
 export default function scripts() {
-	return new Promise(resolve =>
+	return new Promise((resolve) =>
 		webpack(config, (err, stats) => {
 			if (err) {
 				log.error(err.message);

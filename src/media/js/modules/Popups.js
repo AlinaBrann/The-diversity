@@ -1,48 +1,50 @@
-const Callback = require('../classes/Callback');
-const dom = require('../utils/DOM');
+import Callback from '../classes/Callback.js';
+import $ from 'jquery';
+import dom from '../utils/DOM.js';
+import { TweenMax } from 'gsap';
 // const BodyLocker = require('../helpers/BodyLocker');
 // const SlickSliders = require('./SlickSliders');
-
+console.log(Callback);
 function Popups() {
-	this.onOpen = new Callback();
-	this.onClose = new Callback();
-	this.onCloseStart = new Callback();
+	const onOpen = Callback;
+	const onClose = Callback;
+	const onCloseStart = Callback;
 
-	this.opened = false;
-	this.openedClass = '';
+	let opened = false;
+	let openedClass = '';
 
-	this.$openers = $('[data-popup-opener]').removeClass('_active');
-	this.$wrapper = $('.popups-wrapper')
-		.addClass('no-pe')
-		.hide();
+	let $openers = $('[data-popup-opener]').removeClass('_active');
+	let $wrapper = $('.popups-wrapper').addClass('no-pe').hide();
 
-	this.$popups = $('[data-popup]').hide();
+	let $popups = $('[data-popup]').hide();
 
-	this.$activePopup = null;
-	this.activePopupName = '';
+	let $activePopup = null;
+	let activePopupName = '';
 
 	let self = this;
-	// self.open('gallery');
-	dom.$body.on('click', '[data-popup-opener]', function(e) {
+
+	// self.open('map');
+
+	dom.$body.on('click', '[data-popup-opener]', function (e) {
 		e.preventDefault();
 
 		let $this = $(this);
 
-		self.open($this.attr('data-popup-opener'));
+		open($this.attr('data-popup-opener'));
 		$this.addClass('_active');
 
 		$('.popup-slider').slick('refresh');
 	});
 
-	this.$ytPopup = this.$popups.filter('[data-popup="yt-video"]');
-	dom.$body.on('click', '[data-yt-video-popup]', function(e) {
+	const $ytPopup = $popups.filter('[data-popup="yt-video"]');
+	dom.$body.on('click', '[data-yt-video-popup]', function (e) {
 		e.preventDefault();
 
 		let $this = $(this);
 
-		self.open('yt-video');
+		open('yt-video');
 		//$this.addClass('_active');
-		self.$ytPopup.find('.video').html(`
+		$ytPopup.find('.video').html(`
 		<iframe
 			id="player"
 			type="text/html"
@@ -54,59 +56,56 @@ function Popups() {
 		</iframe>`);
 	});
 
-	dom.$body.on('click', '[data-popup-toggler]', function(e) {
+	dom.$body.on('click', '[data-popup-toggler]', function (e) {
 		e.preventDefault();
 
 		let $this = $(this);
 
-		if (self.opened) {
-			self.close();
+		if (opened) {
+			close();
 		} else {
-			self.open($this.attr('data-popup-toggler'));
+			open($this.attr('data-popup-toggler'));
 			$this.addClass('_active');
 		}
 	});
 
-	$('[data-popup-closer]').click(function(e) {
+	$('[data-popup-closer]').click(function (e) {
 		e.preventDefault();
-		self.close();
+		close();
 	});
 
-	this.$wrapper.click(function(e) {
-		if (self.opened) {
+	$wrapper.click(function (e) {
+		if (opened) {
 			let $target = $(e.target);
-			if (!(self.$activePopup.has($target).length || self.$activePopup.is($target))) {
-				self.close();
+			if (!($activePopup.has($target).length || $activePopup.is($target))) {
+				close();
 			}
 		}
 	});
 
-	dom.$window.on('keydown', function(e) {
-		if (self.opened && e.keyCode == 27) {
-			self.close();
+	dom.$window.on('keydown', function (e) {
+		if (opened && e.keyCode == 27) {
+			close();
 		}
 	});
-}
-
-Popups.prototype = {
-	getOpenedPopup: function() {
-		if (this.opened) {
-			return this.$activePopup;
+	function getOpenedPopup() {
+		if (opened) {
+			return $activePopup;
 		} else {
 			return null;
 		}
-	},
+	}
 
-	isOpened: function() {
-		return this.opened;
-	},
+	function isOpened() {
+		return opened;
+	}
 
-	open: function(name) {
-		if (this.activePopupName == name) {
+	function open(name) {
+		if (activePopupName == name) {
 			return;
 		}
 
-		if (this.opened) {
+		if (opened) {
 			this.close(true);
 		}
 
@@ -115,69 +114,64 @@ Popups.prototype = {
 			return;
 		}
 
-		this.opened = true;
-		this.$activePopup = $popup.show();
-		this.activePopupName = name;
-		this.$openers.removeClass('_active');
+		opened = true;
+		$activePopup = $popup.show();
+		activePopupName = name;
+		$openers.removeClass('_active');
 
-		this.$wrapper.addClass('_' + name);
+		$wrapper.addClass('_' + name);
 
-		TweenMax.to(this.$wrapper.show().removeClass('no-pe'), 0.35, { autoAlpha: 1, overwrite: true });
-		TweenMax.fromTo(
-			this.$activePopup,
-			0.35,
-			{ autoAlpha: 0, scale: 0.98 },
-			{ autoAlpha: 1, scale: 1 }
-		);
+		TweenMax.to($wrapper.show().removeClass('no-pe'), 0.35, { autoAlpha: 1, overwrite: true });
+		TweenMax.fromTo($activePopup, 0.35, { autoAlpha: 0, scale: 0.98 }, { autoAlpha: 1, scale: 1 });
 
 		dom.$html.addClass('_popup-opened');
 
-		this.openedClass = '_popup-opened-' + name;
-		dom.$html.addClass(this.openedClass);
+		openedClass = '_popup-opened-' + name;
+		dom.$html.addClass(openedClass);
 
 		// BodyLocker.lock();
 
 		// SlickSliders.update();
 
-		this.onOpen.call();
-	},
+		onOpen.call();
+	}
 
-	close: function(immediate) {
-		if (this.opened) {
-			this.opened = false;
+	function close(immediate) {
+		if (opened) {
+			opened = false;
 
-			this.$wrapper.removeClass('_' + this.activePopupName);
+			$wrapper.removeClass('_' + activePopupName);
 
-			this.onCloseStart.call(this.activePopupName);
+			onCloseStart.call(activePopupName);
 
-			this.activePopupName = '';
+			activePopupName = '';
 
 			let self = this;
 
-			TweenMax.to(this.$wrapper.addClass('no-pe'), 0.35, { autoAlpha: 0, display: 'none' });
-			TweenMax.to(this.$activePopup, immediate ? 0 : 0.35, {
+			TweenMax.to($wrapper.addClass('no-pe'), 0.35, { autoAlpha: 0, display: 'none' });
+			TweenMax.to($activePopup, immediate ? 0 : 0.35, {
 				autoAlpha: 0,
 				scale: 0.98,
 				display: 'none',
-				onComplete: function() {
-					self.onClose.call();
+				onComplete: function () {
+					onClose.call();
 				},
 			});
 
-			this.$activePopup.find('[data-popup-target-frame]').attr('src', '');
+			$activePopup.find('[data-popup-target-frame]').attr('src', '');
 
 			dom.$html.removeClass('_popup-opened');
-			this.$openers.removeClass('_active');
+			$openers.removeClass('_active');
 
-			if (this.openedClass != '') {
-				dom.$html.removeClass(this.openedClass);
-				this.openedClass = '';
+			if (openedClass != '') {
+				dom.$html.removeClass(openedClass);
+				openedClass = '';
 			}
 
-			this.$ytPopup.html('');
+			$ytPopup.html('');
 			// BodyLocker.unlock();
 		}
-	},
-};
+	}
+}
 
-module.exports = new Popups();
+export default Popups();

@@ -1,43 +1,45 @@
-const utils = require('../utils/Utils');
-const env = require('../utils/ENV');
+import utils from '../utils/Utils.js';
+import $ from 'jquery';
 
 const IGNORE_WINDOW_WIDTH = true;
+const listeners = [];
+let viewportScale = 1;
+let started = false;
+// function ShowHelper2() {
+// 	listeners = [];
+// 	viewportScale = 1;
+// 	started = false;
 
-function ShowHelper2() {
-	this.listeners = [];
-	this.viewportScale = 1;
-	this.started = false;
+// 	// eslint-disable-line no-unused-vars
+// 	/* eslint-disable */
+// 	window.addEventListener(
+// 		'resize',
+// 		e => {
+// 			this.update(true);
+// 		},
+// 		true
+// 	);
 
-	// eslint-disable-line no-unused-vars
-	/* eslint-disable */
-	window.addEventListener(
-		'resize',
-		e => {
-			this.update(true);
-		},
-		true
-	);
+// 	let self = this;
 
-	let self = this;
+// 	window.addEventListener(
+// 		'scroll',
+// 		function() {
+// 			self.update();
+// 		},
+// 		true
+// 	);
 
-	window.addEventListener(
-		'scroll',
-		function() {
-			self.update();
-		},
-		true
-	);
+// 	/* eslint-enable */
+// }
 
-	/* eslint-enable */
-}
-
-ShowHelper2.prototype = {
+const ShowHelper2 = {
 	start() {
-		this.started = true;
+		started = true;
 		this.update(true);
 	},
 	stop() {
-		this.started = false;
+		started = false;
 	},
 	watch(target, handler, hitFlag, alwaysUpdate) {
 		let $target = $(target);
@@ -97,9 +99,9 @@ ShowHelper2.prototype = {
 		this.update(true);
 	},
 	resetSingle(target, updateAfter) {
-		let totalListeners = this.listeners.length;
+		let totalListeners = listeners.length;
 		for (let k = 0; k < totalListeners; k++) {
-			let listener = this.listeners[k];
+			let listener = listeners[k];
 			if (listener.target === target) {
 				listener.state = !listener.state;
 
@@ -118,30 +120,30 @@ ShowHelper2.prototype = {
 			alwaysUpdate: !!alwaysUpdate,
 		};
 
-		this.listeners.push(listener);
+		listeners.push(listener);
 
 		this._checkListener(listener, true);
 	},
 	unwatchSingle(target) {
-		let totalListeners = this.listeners.length;
+		let totalListeners = listeners.length;
 		for (let k = 0; k < totalListeners; k++) {
-			if (this.listeners[k].target === target) {
-				this.listeners.splice(k, 1);
+			if (listeners[k].target === target) {
+				listeners.splice(k, 1);
 				this.hasUnwatchAction = true;
 				return;
 			}
 		}
 	},
 	update(forced) {
-		if (!this.started) {
+		if (!started) {
 			return;
 		}
 
 		if (forced) {
 			let width = IGNORE_WINDOW_WIDTH ? 9999999 : window.innerWidth;
 			let height = window.innerHeight;
-			let viewWidth = IGNORE_WINDOW_WIDTH ? width : width * this.viewportScale;
-			let viewHeight = height * this.viewportScale;
+			let viewWidth = IGNORE_WINDOW_WIDTH ? width : width * viewportScale;
+			let viewHeight = height * viewportScale;
 
 			this.viewportLeft = (width - viewWidth) / 2;
 			this.viewportRight = width - this.viewportLeft;
@@ -154,11 +156,11 @@ ShowHelper2.prototype = {
 
 		this.hasUnwatchAction = false;
 		let testedListener;
-		let totalListeners = this.listeners.length;
+		let totalListeners = listeners.length;
 		for (let k = 0; k < totalListeners; k++) {
-			let listener = this.listeners[k];
+			let listener = listeners[k];
 			if (listener && listener != testedListener) {
-				this._checkListener(this.listeners[k], forced);
+				this._checkListener(listeners[k], forced);
 				testedListener = listener;
 			}
 			if (this.hasUnwatchAction) {
@@ -169,11 +171,11 @@ ShowHelper2.prototype = {
 		this.hasUnwatchAction = false;
 	},
 	setViewpostScale(scale) {
-		this.viewportScale = scale;
+		viewportScale = scale;
 		this.update(true);
 	},
 	_checkListener(listener, forced) {
-		if (!this.started) {
+		if (!started) {
 			return;
 		}
 
@@ -208,5 +210,21 @@ ShowHelper2.prototype = {
 		}
 	},
 };
+// eslint-disable-line no-unused-vars
+/* eslint-disable */
+window.addEventListener(
+	'resize',
+	(e) => {
+		ShowHelper2.update(true);
+	},
+	true
+);
 
-module.exports = new ShowHelper2();
+window.addEventListener(
+	'scroll',
+	function () {
+		ShowHelper2.update();
+	},
+	true
+);
+export default ShowHelper2;

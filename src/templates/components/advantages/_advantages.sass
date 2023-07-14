@@ -7,13 +7,14 @@
         display: flex
         align-items: center
         height: 100vh
-        padding: rem(100px) 0 rem(100px)
+        padding: rem(60px) 0 rem(85px)
     +min-screen($screen-lg)
         height: auto
     &__title
         margin-bottom: rem(18px)
         +min-screen($screen-sm)
-            margin-bottom: rem(23px)
+            margin-bottom: rem(10px)
+            letter-spacing: rem(-1px)
         &-small
             +max-screen($screen-sm)
                 margin-bottom: rem(17px)
@@ -31,8 +32,8 @@
             font-size: rem(30px)
             line-height: rem(50px)
         +min-screen($screen-md)
-            margin-bottom: rem(85px)
-            font-size: rem(40px)
+            margin-bottom: rem(45px)
+            font-size: rem(50px)
             line-height: rem(60px)
     &-list
         display: flex
@@ -41,7 +42,7 @@
         justify-content: space-between
         +min-screen($screen-md)
             flex-direction: row
-            margin-top: rem(32px)
+            margin-top: rem(52px)
         &__item
             margin-bottom: rem(26px)
             font-size: rem(14px)
@@ -72,6 +73,7 @@
             height: auto
             margin: 0 auto rem(30px)
         +min-screen($screen-md)
+            max-width: 87%
             margin: 0
             transform-origin: 50% 25%
             opacity: 0

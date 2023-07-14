@@ -1,6 +1,6 @@
 {% from "../icon/_icon.nunj" import icon %}
 
-<section class="agencies">
+<section class="agencies animated-section">
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-md-12 col-lg-12">
@@ -11,7 +11,9 @@
             {% for item in agencies.items %}
                 <div class="agency col-xs-12 col-md-4 col-lg-4" data-auto-show>
                     <div class="agency-head">
-                        <img src="media/img/{{ item.logo }}" alt="{{ item.title }}" class="agency-head__logo">
+                        <a href="{{ item.site }}" class="agency-head__logo-wrapper" target="_blank">
+                            <img src="media/img/{{ item.logo }}" alt="{{ item.title }}" class="agency-head__logo">
+                        </a>
                         <div class="agency-popup-opener">
                             {{ icon({
                                 name: "plus",

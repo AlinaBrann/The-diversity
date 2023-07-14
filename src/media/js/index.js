@@ -1,36 +1,43 @@
-global.$ = global.jQuery = require('jquery');
+import global from 'global';
+import $ from 'jquery';
 import { TweenMax } from 'gsap';
+import env from './utils/ENV.js';
+import { Draggable } from 'gsap/Draggable.js';
+import dom from './utils/DOM.js';
+import Popups from './modules/Popups.js';
+import SlickSliders from './modules/SlickSliders.js';
+import Animations from './modules/Animations.js';
+// import Utils from './utils/Utils.js';
+// import * as Callback from './classes/Callback.js';
+// global.TweenMax = TweenMax;
 
-import { Draggable } from 'gsap/Draggable';
-global.TweenMax = TweenMax;
-
-global.Draggable = Draggable;
-require('./utils/jqExtensions');
-require('slick-carousel');
+// global.Draggable = Draggable;
+// require('./utils/jqExtensions');
+import 'slick-carousel';
 
 // prettier-ignore
 global.ProjectName = new function ProjectName() { // eslint-disable-line
-	this.env = require('./utils/ENV');
-	this.dom = require('./utils/DOM');
-	this.utils = require('./utils/Utils');
+	this.env = env;
+	this.dom = dom;
+	// this.utils = Utils;
 
-	this.classes = {
-		Callback: require('./classes/Callback')
-	};
+	// this.classes = {
+	// 	Callback: Callback
+	// };
 
 	this.helpers = {};
 	this.modules = {
-		Popups: require('./modules/Popups'),
+		Popups: Popups,
 		
-		SlickSliders: require('./modules/SlickSliders'),
-		Animations: require('./modules/Animations'),
+		SlickSliders: SlickSliders,
+		Animations: Animations,
 	};
 
 	// Startup
 	$(() => {
 		// Remove _loading modificator
 		this.dom.$html.removeClass('_loading');
-
+		console.log(SlickSliders);
 		let opener = $('.agency-popup-opener')
 
 		opener.on('click', function(){
@@ -51,6 +58,6 @@ global.ProjectName = new function ProjectName() { // eslint-disable-line
 	});
 }();
 
-if (module.hot) {
-	module.hot.accept();
-}
+// if (module.hot) {
+// 	module.hot.accept();
+// }

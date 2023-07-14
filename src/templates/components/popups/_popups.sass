@@ -32,10 +32,14 @@
 	margin: auto
 	will-change: transform
 	color: #FFF	
+	&._small
+		background: #FFF
 	+min-screen($screen-sm)
 		width: 90%
 		background: #FFF
 		color: #131316
+		&._small 
+			width: rem(507px)
 	+min-screen($screen-md)
 		width: 50%
 		min-height: 100%
@@ -50,7 +54,8 @@
 		cursor: pointer
 		&__text
 			margin-right: 10px
-			font-size: 14px
+			font-size: rem(14px)
+			font-weight: 800
 			text-transform: uppercase
 			@extend .transition
 			+min-screen($screen-sm)
@@ -133,3 +138,29 @@
 				+min-screen($screen-md)
 					font-size: rem(26px)
 					line-height: rem(40px)
+	&__content
+		padding: rem(50px) rem(24px)
+		+min-screen($screen-md)
+			padding: rem(70px) rem(64px)
+
+	&__title 
+		font-size: rem(30px)
+		line-height: rem(36px)
+		font-weight: bolder
+		color: #000
+		+min-screen($screen-md)
+			font-size: rem(40px)
+			line-height: rem(46px)
+
+	&__form 
+		padding-top: rem(25px)
+
+	&__button
+		width: 100%
+		margin-top: rem(15px)
+
+	&__map 
+		padding: rem(66px) rem(26px) rem(40px)
+		text-align: center
+		&-img 
+			margin-bottom: rem(40px)

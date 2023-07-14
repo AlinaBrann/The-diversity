@@ -4,13 +4,13 @@ import svgstore from 'gulp-svgstore';
 import svgmin from 'gulp-svgmin';
 import path from 'path';
 
-import PATHS from '../paths';
+import PATHS from '../paths.js';
 
 export default function svg() {
 	return gulp
 		.src(PATHS.src.svg)
 		.pipe(
-			svgmin(file => {
+			svgmin((file) => {
 				const prefix = path.basename(file.relative, path.extname(file.relative));
 				return {
 					plugins: [

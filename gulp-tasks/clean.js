@@ -1,7 +1,8 @@
-import del from 'del';
+import { deleteAsync } from 'del';
+import PATHS from '../paths.js';
 
-import PATHS from '../paths';
+const deletedDirectoryPaths = await deleteAsync(PATHS.clean);
 
 export default function clean() {
-	return del(PATHS.clean);
+	return deletedDirectoryPaths;
 }

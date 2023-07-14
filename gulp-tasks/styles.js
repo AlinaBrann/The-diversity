@@ -5,15 +5,17 @@ import postcss from 'gulp-postcss';
 import autoprefixer from 'autoprefixer';
 import sprites from 'postcss-sprites';
 import assets from 'postcss-assets';
-import sass from 'gulp-sass';
+import gulpSass from 'gulp-sass';
+import nodeSass from 'node-sass';
+const sass = gulpSass(nodeSass);
 import sourcemaps from 'gulp-sourcemaps';
 import cssmin from 'gulp-clean-css';
 import gulpif from 'gulp-if';
 import log from 'fancy-log';
 import colors from 'ansi-colors';
 
-import PATHS from '../paths';
-import { PRODUCTION } from '../config';
+import PATHS from '../paths.js';
+import { PRODUCTION } from '../config.js';
 
 const PROCESSORS = [
 	autoprefixer({
@@ -29,7 +31,7 @@ const PROCESSORS = [
 		spritePath: './build/media/img/',
 		retina: true,
 		padding: 4,
-		filterBy: image =>
+		filterBy: (image) =>
 			/sprites\/.*\.png$/gi.test(image.url) ? Promise.resolve() : Promise.reject(),
 	}),
 ];
@@ -39,7 +41,7 @@ export default function styles() {
 		.src(PATHS.src.styles)
 		.pipe(
 			plumber({
-				errorHandler: function(err) {
+				errorHandler: function (err) {
 					log.error(colors.red(err.message));
 					notifier.notify({
 						title: 'SASS compilation error',

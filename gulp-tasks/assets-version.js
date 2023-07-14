@@ -1,10 +1,10 @@
 import gulp from 'gulp';
-import PATHS from '../paths';
-import { PRODUCTION } from '../config';
+import PATHS from '../paths.js';
+import { PRODUCTION } from '../config.js';
 
-var replace = require('gulp-replace');
-var fs = require('fs');
-const md5File = require('md5-file');
+import replace from 'gulp-replace';
+import fs from 'fs';
+import md5File from 'md5-file';
 
 const buildPath = PATHS.build.html.replace(/\/$/, '');
 
@@ -14,7 +14,7 @@ export default function assetsVersion() {
 	return gulp
 		.src(buildPath + '/**/*.html')
 		.pipe(
-			replace(/([\w\/]+\.[js|css]+\?)hash/gi, function(match) {
+			replace(/([\w\/]+\.[js|css]+\?)hash/gi, function (match) {
 				var assetPath = __dirname;
 
 				assetPath = assetPath.replace('gulp-tasks', buildPath);

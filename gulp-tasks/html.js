@@ -8,15 +8,16 @@ import gulpif from 'gulp-if';
 import log from 'fancy-log';
 import colors from 'ansi-colors';
 
-import { PRODUCTION } from '../config';
-import PATHS from '../paths';
+import { PRODUCTION } from '../config.js';
+import PATHS from '../paths.js';
 import * as extensions from '../src/templates/lib/extensions.js';
-import filters from '../src/templates/lib/filters.js';
-import functions from '../src/templates/lib/functions.js';
+import globalData from '../global-data.json' assert { type: "json" };
+
+// import filters from '../src/templates/lib/filters.js';
+// import functions from '../src/templates/lib/functions.js';
 
 export default function html() {
-	delete require.cache[require.resolve('../global-data.json')];
-	const globalData = require('../global-data.json');
+	// delete require.cache[require.resolve('../global-data.json')];
 
 	return gulp
 		.src(PATHS.src.nunj)
@@ -41,8 +42,8 @@ export default function html() {
 					globalData
 				),
 				extensions,
-				filters,
-				functions,
+				// filters,
+				// functions,
 				trimBlocks: true,
 				lstripBlocks: true,
 				autoescape: false,

@@ -1,9 +1,13 @@
 'use strict';
 import webpack from 'webpack';
 import path from 'path';
+import { fileURLToPath } from 'url';
 
-import { PRODUCTION, hmrEnabled } from './config';
-import paths from './paths';
+const __filename = fileURLToPath(import.meta.url);
+
+const __dirname = path.dirname(__filename);
+import { PRODUCTION, hmrEnabled } from './config.js';
+import paths from './paths.js';
 
 const entryPoints = {
 	bundle: path.resolve(__dirname, paths.src.scripts),
@@ -35,11 +39,11 @@ export const config = {
 					'babel-loader',
 					{
 						options: {
-							eslintPath: require.resolve('eslint'),
+							eslintPath: 'eslint',
 							cache: true,
 							configFile: path.resolve('.eslintrc'),
 						},
-						loader: require.resolve('eslint-loader'),
+						loader: 'eslint-loader',
 					},
 				],
 			},
@@ -54,7 +58,7 @@ export const config = {
 		modules: ['node_modules'],
 	},
 	plugins: PRODUCTION ? [] : [new webpack.HotModuleReplacementPlugin()],
-	devtool: PRODUCTION ? false : '#eval',
+	devtool: PRODUCTION ? false : 'source-map',
 	mode: PRODUCTION ? 'production' : 'development',
 	optimization: {
 		minimize: PRODUCTION,

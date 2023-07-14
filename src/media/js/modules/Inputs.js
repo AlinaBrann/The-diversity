@@ -1,6 +1,6 @@
 function Inputs() {
 	var show = $('.input-visibility');
-	show.click(function() {
+	show.click(function () {
 		$(this).toggleClass('_not-show');
 		var input = $(this).prev('.input');
 		if (input.attr('type') == 'password') {
@@ -11,7 +11,7 @@ function Inputs() {
 	});
 	var bigStep = 100;
 
-	$('[data-add]').click(function() {
+	$('[data-add]').click(function () {
 		var inputNumber = $(this).siblings('.input');
 		var max = inputNumber.attr('max');
 		let step = inputNumber.attr('step');
@@ -23,7 +23,7 @@ function Inputs() {
 			inputNumber.val();
 		}
 	});
-	$('[data-sub]').click(function() {
+	$('[data-sub]').click(function () {
 		var inputNumber2 = $(this).siblings('.input');
 		var step2 = inputNumber2.attr('step');
 		var currentVal = parseInt(inputNumber2.val());
@@ -33,7 +33,7 @@ function Inputs() {
 			inputNumber2.val(0);
 		}
 	});
-	$('[data-check-pin]').change(function() {
+	$('[data-check-pin]').change(function () {
 		var inputPin = $('.input-check-pin');
 		inputPin.attr('disabled', !inputPin.attr('disabled')).focus();
 	});
